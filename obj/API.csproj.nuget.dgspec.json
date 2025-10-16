@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yossi\\Desktop\\HOMEWORK\\DatingAppAPI\\API\\API.csproj": {}
+    "C:\\Users\\TZVI\\project-client\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yossi\\Desktop\\HOMEWORK\\DatingAppAPI\\API\\API.csproj": {
+    "C:\\Users\\TZVI\\project-client\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yossi\\Desktop\\HOMEWORK\\DatingAppAPI\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\TZVI\\project-client\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\yossi\\Desktop\\HOMEWORK\\DatingAppAPI\\API\\API.csproj",
+        "projectPath": "C:\\Users\\TZVI\\project-client\\API.csproj",
         "packagesPath": "C:\\Users\\yossi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yossi\\Desktop\\HOMEWORK\\DatingAppAPI\\API\\obj\\",
+        "outputPath": "C:\\Users\\TZVI\\project-client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
