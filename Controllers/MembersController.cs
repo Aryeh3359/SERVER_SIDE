@@ -50,5 +50,25 @@ namespace API.Controllers
             var res = context.Users.FirstOrDefault(u => u.DisplayName == displayName);
             return res == null ? NotFound() : Ok(res);
         }
+
+        [HttpPost]
+        public async Task<ActionResult<AppUser>> CreateMember(AppUser user)
+        {
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            // Ensure Id is set
+            if (string.IsNullOrWhiteSpace(user.Id))
+            {
+                user.Id = Guid.NewGuid().ToString();
+            }
+
+            context.Users?.Add(user);
+            await context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetMember), new { id = user.Id }, user);
+        }
     }
 }
