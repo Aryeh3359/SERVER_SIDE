@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -16,14 +17,16 @@ namespace API.Controllers
             _context = context ?? throw new System.ArgumentNullException(nameof(context));
         }
 
-        [HttpPost("register")]
-        public async Task<ActionResult<AppUser>> Register(AppUser user)
+        [HttpGet("health")]
+        public ActionResult HealthCheck()
         {
-            if (user == null || string.IsNullOrWhiteSpace(user.Email))
-            {
-                return BadRequest();
-            }
+            return Ok(new { status = "Auth service is running" });
+        }
 
+        [HttpPost("register")]
+        public async Task<ActionResult<AppUser>> Register(AppUserDTO user)
+        {
+            
             if (_context.Users == null)
             {
                 return StatusCode(500, new { message = "Database not available" });
@@ -35,12 +38,17 @@ namespace API.Controllers
                 return Conflict(new { message = "User already exists" });
             }
 
-            if (string.IsNullOrWhiteSpace(user.Id)) user.Id = System.Guid.NewGuid().ToString();
+            var newUser = new AppUser
+            {
+                DisplayName = user.DisplayName,
+                Email = user.Email
+            };
 
-            _context.Users.Add(user);
+            _context.Users.Add(newUser);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(null, new { id = user.Id }, user);
+            return Ok(newUser);
+
         }
 
         [HttpPost("login")]

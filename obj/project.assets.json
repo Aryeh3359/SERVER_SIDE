@@ -3194,11 +3194,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yossi\\TZVI KOPELOWITZ\\SERVER_SIDE\\API.csproj",
+      "projectUniqueName": "C:\\Users\\yossi\\project2\\SERVER_SIDE\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\yossi\\TZVI KOPELOWITZ\\SERVER_SIDE\\API.csproj",
+      "projectPath": "C:\\Users\\yossi\\project2\\SERVER_SIDE\\API.csproj",
       "packagesPath": "C:\\Users\\yossi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yossi\\TZVI KOPELOWITZ\\SERVER_SIDE\\obj\\",
+      "outputPath": "C:\\Users\\yossi\\project2\\SERVER_SIDE\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
