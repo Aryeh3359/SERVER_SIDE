@@ -51,21 +51,37 @@ namespace API.Controllers
 
         }
 
-        [HttpPost("login")]
-        public async Task<ActionResult<AppUser>> Login([FromBody] AppUser credentials)
+    [HttpPost("login")]
+public async Task<ActionResult<AppUser>> Login([FromBody] AppUser credentials)
+{
+    // 1️⃣ Validate input
+    if (credentials == null || string.IsNullOrWhiteSpace(credentials.Email) )
+        return BadRequest(new { message = "Email and password are required." });
+
+    // 2️⃣ Check database availability
+    if (_context.Users == null)
+        return StatusCode(500, new { message = "Database not available." });
+
+    // 3️⃣ Find user by email
+    var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == credentials.Email);
+    if (user == null)
+        return Unauthorized(new { message = "Invalid email or password." });
+
+   
+
+    // 5️⃣ Return success
+    return Ok(new
+    {
+        message = "Login successful!",
+        user = new
         {
-            if (credentials == null || string.IsNullOrWhiteSpace(credentials.Email))
-                return BadRequest();
+            
+            user.Email,
+            user.DisplayName
+        }
+    });
+}
 
-            if (_context.Users == null)
-                return StatusCode(500, new { message = "Database not available" });
-
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == credentials.Email);
-            if (user == null)
-                return Unauthorized(new { message = "Invalid credentials" });
-
-            // NOTE: This is a minimal placeholder. Do NOT use plain-text checks in production.
-            return Ok(user);
         }
     }
-}
+
